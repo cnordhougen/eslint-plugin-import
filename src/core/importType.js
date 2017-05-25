@@ -29,7 +29,7 @@ export function isBuiltIn(name, settings) {
 
 function isExternalPath(path, name, settings) {
   const folders = (settings && settings['import/external-module-folders']) || ['node_modules']
-  return !path || folders.some(folder => -1 < path.indexOf(join(folder, name)))
+  return !path || folders.some(folder => -1 < path.indexOf(`/${folder}/`))
 }
 
 const externalModuleRegExp = /^\w/
