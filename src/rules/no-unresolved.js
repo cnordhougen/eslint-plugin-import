@@ -22,7 +22,7 @@ module.exports = {
       const shouldCheckCase = !CASE_SENSITIVE_FS &&
         (!context.options[0] || context.options[0].caseSensitive !== false)
 
-      const resolvedPath = resolve(source.value, context)
+      const resolvedPath = resolve(source.value.replace(/![^!]+$/, ''), context)
 
       if (resolvedPath === undefined) {
         context.report(source,
